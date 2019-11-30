@@ -27,16 +27,16 @@
     <a href="javascript:void(0)" class="closebtn" onclick="closeNavR()">×</a>
 
     <% if current_user %>
-    <div class="slide-profile">
-      <img src="login_picture.png" alt="사진없음" style="width: 150px; height: 150px">
-    </div>
-    <div class="slide-nickname">닉네임 :</div>
-    <div class="slide-score">활동점수 :</div>
-    <a class="slide-logout-button btn btn-danger" href="<%= destroy_user_session_path %>" data-method="delete">로그아웃</a>
+		<div class="slide-profile">
+		  <img src="<%= asset_path("login_picture.png") %>" alt="사진없음" style="width: 150px; height: 150px">
+		</div>
+		<div class="slide-nickname">닉네임 : <%= current_user.nickname %></div>
+		<div class="slide-score">활동점수 : <%= current_user.count %></div>
+		<button class="slide-logout-button btn btn-danger"><a href="<%= destroy_user_session_path %>" style="color:white;" data-method="delete">로그아웃</a>
 
     <% else %>
-    <a class="slider-login btn btn-success" href="<%= user_session_path %>">로그인</a>
-    <a class="slider-register btn btn-info" href="<%= new_user_registration_path %>">회원가입</a>
+		<button class="slider-login btn btn-success"><a href="<%= user_session_path %>" style="color:white;">로그인</a></button>
+		<button class="slider-register btn btn-info"><a href="<%= new_user_registration_path %>" style="color:white;">회원가입</a></button>
     <% end %>
     
   </div>
@@ -46,6 +46,8 @@
     <button class="btn btn-warning">내 정보보기</button>
   </span>
 
+  
+  <div class="slider-list"><%= link_to "목록으로", rooms_path %></div>
 
 
 <script>

@@ -3,4 +3,13 @@
 @import 'show';
 @import 'slider';
 @import 'list';
-@imoprt 'new';
+@import 'new';
+
+a {
+	text-decoration: none;
+}
+
+a:hover{
+	color: white;
+	text-decoration: none !important;
+}

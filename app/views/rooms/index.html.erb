@@ -1,39 +1,51 @@
-<div class="btn-group list-searchgroup">
+  
+<div class="list-mother" >
+  <div class="btn-group list-searchgroup">
     <button type="button" id="dropdown-items" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       카테고리
     </button>
     
     <div class="dropdown-menu">
-        <% @categories.each do |cate| %>
-           <a class="dropdown-item" href="#" ><%= cate.category_name %></a> 
-        <% end %>
-    </div>
-    <input type="text" class="form-control">
-    <input class="btn btn-outline-secondary" type="button" value="입력">
+			<% @categories.each do |cate| %>
+			   <a class="dropdown-item" href="#" ><%= cate.category_name %></a> 
+			<% end %>
+	</div>
+		<input type="text" class="form-control" id="search_term" placeholder="카테고리 선택 하지 않으면 영화로 검색됩니다.">
+		<input class="btn btn-outline-secondary" type="button" value="입력" onclick="search();">
   </div>
 
-<a href="<%= new_room_path %>" >
-  <button type="button" class="btn btn-outline-danger outline-button list-create-meeting">
-      모임 만들기
-  </button>
-  </a>
+  
+	  <button type="button" class="btn btn-outline-danger outline-button list-create-meeting">
+		<a href="<%= new_room_path %>" class="list-create-meeting-a">
+		  모임 만들기
+		</a>
+	  </button> 
+  
 
-  <div class="wrapper">
+  <div class="wrapper list-wrapper">
     <%= render partial: "shared/roomitem", collection: @rooms %>
   </div>
 
- 
-  </div>
+ </div>
+
   
   <script>
   
+      var cate = "영화"
       var t = document.getElementsByClassName("dropdown-item");
       
       for (var i = 0; i < t.length; i++){
           t[i].addEventListener("click",function(event){
           document.getElementById("dropdown-items").innerHTML = event.target.innerHTML;
+          cate = event.target.innerHTML;
           event.stopPropagation()
       });
+      }
+      
+      function search(){
+          var search_term = document.getElementById("search_term");
+          location.href = "/rooms?term=" + search_term.value + "&category=" + cate;
+          console.log(search_term.value)
       }
       
 

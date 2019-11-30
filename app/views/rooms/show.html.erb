@@ -5,7 +5,7 @@
     <div class="show-session2">
       <div class="show-category"><%= @room.room_category.category_name %></div>
       <div class="show-writer"><%= @room.user.nickname %></div>
-      <div class="show-endtime">마감시간</div>
+      <div class="show-endtime"><%= @room.expired_at.strftime("%F") %></div>
     </div>
     <div class="show-session3">
       <div class="show-content">

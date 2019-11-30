@@ -1,49 +1,40 @@
 <div class="outh-mother">
-    <div class="outh-child">
+	<div class="outh-child">
+		<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "outh-login outh-form"}) do |f| %>
+
+			<img src="<%= asset_path("login_picture.png") %>" class="outh-picture">
 
 
+			<%= f.email_field :email, autofocus: true, autocomplete: "email", class: "outh-login-email", placeholder: "이메일" %>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "outh-login outh-form"}) do |f| %>
+			<%= f.password_field :password, autocomplete: "current-password", class: "outh-login-password", placeholder: "비밀번호" %>
 
-    <img src="<%= asset_path("login_picture.png") %>" class="outh-picture">
+			<%= f.submit "로그인", class: "outh-login-submit btn btn-info" %>
 
-  
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "outh-login-email", placeholder: "이메일" %>
+		<% end %>
 
-    <%= f.password_field :password, autocomplete: "current-password", class: "outh-login-password", placeholder: "비밀번호" %>
- 
-    <%= f.submit "로그인", class: "outh-login-submit btn btn-info" %>
-  
-<% end %>
+		<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "outh-register outh-form"}) do |f| %>
+		  <%= render "devise/shared/error_messages", resource: resource %>
 
+			<%= f.email_field :email, autofocus: true, autocomplete: "email", class: "outh-register-email", placeholder: "이메일" %>
 
+			<%= f.password_field :password, autocomplete: "new-password", class: "outh-register-password", placeholder: "비밀번호" %>
 
+			<%= f.password_field :password_confirmation, autocomplete: "new-password", class: "outh-login-password-confirmation", placeholder: "비밀번호확인" %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "outh-register outh-form"}) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+			<%= f.text_field :nickname, class: "outh-register-nickname", placeholder: "닉네임" %>
 
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "outh-register-email", placeholder: "이메일" %>
-  
-    <%= f.password_field :password, autocomplete: "new-password", class: "outh-register-password", placeholder: "비밀번호" %>
+			<%= f.number_field :age, class: "outh-register-age", placeholder: "나이"%>
 
-    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "outh-login-password-confirmation", placeholder: "비밀번호확인" %>
-  
-    <%= f.text_field :nickname, class: "outh-register-nickname", placeholder: "닉네임" %>
-  
-    <%= f.number_field :age, class: "outh-register-age", placeholder: "나이"%>
-  
-    <%= f.select :sex, {"남":0, "여":1}, include_blank: false, class: "outh-register-sex" %>
-  
-    <%= f.text_field :name , class: "outh-register-name", placeholder: "이름" %>
+			<%= f.select :sex, {"남":0, "여":1}, include_blank: false, class: "outh-register-sex" %>
 
-    <%= f.text_field :loc , class: "outh-register-region", placeholder: "지역"%>
+			<%= f.text_field :name , class: "outh-register-name", placeholder: "이름" %>
 
-    <%= f.submit "Sign up", class: "outh-register-submit btn btn-info" %>
-    
-<% end %>
+			<%= f.text_field :loc , class: "outh-register-region", placeholder: "지역"%>
 
+			<%= f.submit "Sign up", class: "outh-register-submit btn btn-info" %>
 
+		<% end %>
 
-
-</div>
+	</div>
 </div>

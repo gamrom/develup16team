@@ -4,7 +4,13 @@ class RoomsController < ApplicationController
   # GET /rooms
   # GET /rooms.json
   def index
-    @rooms = Room.includes(:room_category, :user).all
+    if params["term"] 
+        cate = RoomCategory.find_by(category_name: params["category"])
+        @rooms = Room.where(room_category_id: cate.id).where("title LIKE ?", "%#{params["term"]}%")
+    else
+        @rooms = Room.includes(:room_category, :user).all
+    end
+    
     @categories = RoomCategory.all
   end
 
@@ -73,6 +79,7 @@ class RoomsController < ApplicationController
       puts params
       puts current_user
       Apply.create(user: current_user, room: @room, comment: params["apply"]["comment"])
+      current_user.update(count: current_user.count + 1)
       redirect_to room_path(@room)
   end
 
