@@ -1,0 +1,89 @@
+@font-face { font-family: 'BinggraeMelona'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/BinggraeMelona.woff') format('woff'); font-weight: normal; font-style: normal; }
+*{
+  font-family: 'BinggraeMelona';
+}
+
+.new-mother {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  /* background-image: url("coral.jpg"); */
+  background-size: 100vw;
+  width: 100vw;
+  height: 100vh;
+}
+
+.new-session1 {
+  margin-top: 5vh;
+  width: 40vw;
+  display: flex;
+  align-items: center;
+}
+
+.new-title {
+  width: 10vw;
+}
+
+.new-session2 {
+  width: 50vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5vh 0;
+  font-size: 1.5rem;
+}
+
+.new-session3 {
+  width: 60vw;
+  background-color: rgba(255, 112,128,0.5);
+  padding: 5vw;
+}
+
+.new-content-child {
+  width: 50vw;
+  align-items: center;
+  height: 30vh;
+}
+
+.new-title {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.new-session4 {
+  margin-top: 3vh;
+}
+
+.new-session5 {
+  display: flex;
+  justify-content: space-between;
+  width: 60vw;
+  margin-bottom: 5vw;
+}
+
+.new-nickname {
+  font-size: 1.2rem;
+  margin-left: 3vw;
+}
+
+.new-comment-list {
+  font-size: 1.2rem;
+  width: 45vw;
+}
+
+.new-hr {
+  width: 30%;
+  border-top: 1px black bold;
+}
+
+.new-session-hr {
+  width: 60vw;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3vh;
+}
+
+.new-hr-content {
+   font-size: 1.2rem;
+}

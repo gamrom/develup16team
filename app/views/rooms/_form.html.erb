@@ -1,0 +1,42 @@
+   
+    
+    
+<%= form_with(model: room, local: true, html:{class:"new-mother"}) do |form| %>
+  <% if room.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(room.errors.count, "error") %> prohibited this room from being saved:</h2>
+
+      <ul>
+      <% room.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="new-session1">
+     <div class="new-title">제목</div>
+    <%= form.text_field :title, class: "new-title-input form-control" %>
+  </div>
+  
+  <div class="new-session2">
+  
+    <%= form.select :room_category_id, category_json(@categories), include_blank: false %>
+  </div>
+
+  <div class="new-endtime">
+      마감시간
+    <%= form.date_field :expired_at %>
+  </div>
+  
+<div class="new-session3">
+<div class="new-content">
+    <%= form.text_area :content, class: "new-content-child" %>
+    </div>
+  </div>
+  
+  <div class="new-session4" style="margin-bottom: 3vw;">
+    <%= form.submit %>
+  </div>
+<% end %>
+

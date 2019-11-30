@@ -1,0 +1,40 @@
+<div class="btn-group list-searchgroup">
+    <button type="button" id="dropdown-items" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      카테고리
+    </button>
+    
+    <div class="dropdown-menu">
+        <% @categories.each do |cate| %>
+           <a class="dropdown-item" href="#" ><%= cate.category_name %></a> 
+        <% end %>
+    </div>
+    <input type="text" class="form-control">
+    <input class="btn btn-outline-secondary" type="button" value="입력">
+  </div>
+
+<a href="<%= new_room_path %>" >
+  <button type="button" class="btn btn-outline-danger outline-button list-create-meeting">
+      모임 만들기
+  </button>
+  </a>
+
+  <div class="wrapper">
+    <%= render partial: "shared/roomitem", collection: @rooms %>
+  </div>
+
+ 
+  </div>
+  
+  <script>
+  
+      var t = document.getElementsByClassName("dropdown-item");
+      
+      for (var i = 0; i < t.length; i++){
+          t[i].addEventListener("click",function(event){
+          document.getElementById("dropdown-items").innerHTML = event.target.innerHTML;
+          event.stopPropagation()
+      });
+      }
+      
+
+    </script>

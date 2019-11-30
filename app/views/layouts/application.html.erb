@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Develup16team</title>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+    
+    <%= yield %>
+    
+    <div id="mySidenavR" class="sidenavR">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNavR()">×</a>
+
+    <% if current_user %>
+    <div class="slide-profile">
+      <img src="login_picture.png" alt="사진없음" style="width: 150px; height: 150px">
+    </div>
+    <div class="slide-nickname">닉네임 :</div>
+    <div class="slide-score">활동점수 :</div>
+    <a class="slide-logout-button btn btn-danger" href="<%= destroy_user_session_path %>" data-method="delete">로그아웃</a>
+
+    <% else %>
+    <a class="slider-login btn btn-success" href="<%= user_session_path %>">로그인</a>
+    <a class="slider-register btn btn-info" href="<%= new_user_registration_path %>">회원가입</a>
+    <% end %>
+    
+  </div>
+
+
+  <span id="slider-button" style="font-size:1.5rem;cursor:pointer" onclick="openNavR()">
+    <button class="btn btn-warning">내 정보보기</button>
+  </span>
+
+
+
+<script>
+
+function openNavR() {
+    document.getElementById("mySidenavR").style.width = "250px";
+}
+
+function closeNavR() {
+    document.getElementById("mySidenavR").style.width = "0";
+}
+</script>
+    
+  </body>
+</html>

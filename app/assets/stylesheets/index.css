@@ -1,0 +1,37 @@
+@font-face { font-family: 'BinggraeMelona'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/BinggraeMelona.woff') format('woff'); font-weight: normal; font-style: normal; }
+*{
+  font-family: 'BinggraeMelona';
+}
+
+.index-mother {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(255, 112,128,0.6);
+  background-size: 100vw;
+  /* background-color: #ff7063; */
+  background-image: url("coral.jpg")
+}
+
+.index-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  /* center position */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+}
+
+.index-title {
+  font-size: 5rem;
+}
+
+.index-start {
+  font-size: 2rem;
+  margin-top: 3vh;
+  border-radius: 5px;
+}

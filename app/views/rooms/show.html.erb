@@ -1,0 +1,60 @@
+<div class="show-mother">
+    <div class="show-session1">
+      <div class="show-title"><%= @room.title %></div>
+    </div>
+    <div class="show-session2">
+      <div class="show-category"><%= @room.room_category.category_name %></div>
+      <div class="show-writer"><%= @room.user.nickname %></div>
+      <div class="show-endtime">마감시간</div>
+    </div>
+    <div class="show-session3">
+      <div class="show-content">
+        <div class="show-content-child">
+        <%= @room.content %>
+        </div>
+      </div>
+    </div>
+    <div class="show-session4">
+        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#comment">참여하기</button>
+    </div>
+  </div>
+
+<!-- Modal -->
+    <div class="modal fade" id="comment" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">각오 한마디</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <form action="<%= room_apply_path(id: @room.id) %>" method="post">
+          <div class="modal-body">
+            <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+            <input type="text" class="form-control" name="apply[comment]">
+          </div>
+          
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
+            <input type="submit" class="btn btn-primary" value="확인">
+          </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+
+<%= link_to 'Edit', edit_room_path(@room) %> |
+<%= link_to 'Back', rooms_path %>
+
+<div class="show-session-hr">
+      <hr class="show-hr">
+      <div class="show-hr-content">각오한마디</div>
+      <hr class="show-hr">
+    </div>
+
+<%= render partial: "shared/comment", collection: @applies %>
+
+    

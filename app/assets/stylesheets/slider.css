@@ -1,0 +1,50 @@
+
+@font-face { font-family: 'BinggraeMelona'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/BinggraeMelona.woff') format('woff'); font-weight: normal; font-style: normal; }
+*{
+  font-family: 'BinggraeMelona';
+}
+.sidenavR{
+  background-color: rgb(255,112,128);
+  height:100%;
+  overflow-x:hidden;
+  padding-top:60px;
+  position:fixed;
+  right:0;
+  top:0;
+  transition:.5s;
+  width:0;z-index:1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sidenav a,.sidenavR a{
+  color:#818181;
+  display:block;
+  font-size:25px;
+  padding:8px 8px 8px 32px;
+  text-decoration:none;
+  transition:.3s;
+}
+
+.sidenav a:hover,.offcanvas a:focus,.sidenavR a:hover,.offcanvas a:focus{
+  color:#f1f1f1;
+}
+
+.sidenav .closebtn,.sidenavR .closebtn{
+  font-size:36px;
+  margin-left:50px;
+  position:absolute;
+  right:25px;
+  top:0;
+}
+
+#slider-button {
+  position: fixed;
+  top: 2vh;
+  right: 2vw;
+}
+
+.slider-login {
+  margin-bottom: 2vh;
+}
